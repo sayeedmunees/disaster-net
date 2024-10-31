@@ -1,0 +1,104 @@
+#include <Keypad.h>
+ #include <SPI.h>  
+ #include <Wire.h>  
+ #include <Adafruit_GFX.h>  
+ #include <Adafruit_SSD1306.h>  
+#include <Fonts/FreeSerif9pt7b.h>
+
+ #define screen_width 128 // OLED display width, in pixels  
+ #define screen_height 64 // OLED display height, in pixels  
+
+#if defined(ESP32)
+ #define OLED_RESET -1
+#elif defined(ESP8266)
+ #define OLED_RESET 4
+ #endif
+
+ Adafruit_SSD1306 display(screen_width, screen_height);  
+
+#define ROW_NUM     4 // four rows
+#define COLUMN_NUM  4 // four columns
+
+char keys[ROW_NUM][COLUMN_NUM] = {
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
+
+byte pin_rows[ROW_NUM]      = {13, 12, 14, 27}; // GIOP19, GIOP18, GIOP5, GIOP17 connect to the row pins
+byte pin_column[COLUMN_NUM] = {26, 25, 33, 32};   // GIOP16, GIOP4, GIOP0, GIOP2 connect to the column pins
+
+Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );
+
+void setup() 
+{
+  Serial.begin(115200);
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  
+  display.clearDisplay(); 
+  display.setFont(&FreeSerif9pt7b);
+  display.setTextSize(1);  
+  display.setTextColor(WHITE);
+  display.setCursor(4, 15);
+  display.print("Entered Number");
+  display.display(); 
+}
+
+void loop() 
+{
+  char key = keypad.getKey();
+  if (key) 
+  {
+    switch (key) {
+        case '1':
+          display.print("Help");
+          break;
+        case '2':
+          display.print("Location");
+          break;
+        case '3':
+          display.print("How long");
+          break;
+        case '4':
+          display.print("location is:");
+          break;
+        case '5':
+          display.print("urgent!!!!!");
+          break;
+        case '6':
+          display.print("I'm going to suicide");
+          break;
+        case '7':
+          display.print("running low on food");
+          break;
+        case '8':
+          display.print("running low on water");
+          break;
+        case '9':
+          display.print("big fat nigas");
+          break;
+        case 'A':
+          display.print("-5 target temperature");
+          break;
+        case 'B':
+          display.print("Reset kWh used");
+          break;
+        case 'C':
+          display.print("Start operation");
+          break;
+        case 'D':
+          display.print("Stop operation");
+          break;
+      }}
+    Serial.println(key);
+    display.clearDisplay();
+    display.setTextSize(0.1);  
+    display.setTextColor(WHITE);
+    display.setCursor(4, 15);
+    display.print("Entered Number");
+    display.setTextSize(2); 
+    display.setCursor(50, 50);
+    display.print(key);
+    display.display(); 
+    display.print("press any key");
+  }
