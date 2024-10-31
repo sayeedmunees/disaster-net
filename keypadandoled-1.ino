@@ -47,7 +47,7 @@ void loop(){
         Serial.println("Help Me");
         servo_bin.write(0);
         display.clearDisplay();
-        display.setCursor(0,25);
+        display.setCursor(0,5);
         display.setTextSize(3);
         display.print("Sent");
         display.display();
@@ -59,7 +59,7 @@ void loop(){
       } else if("2" == input_password){
         Serial.println("Not feeling well");
         display.clearDisplay();
-        display.setCursor(23,25);
+        display.setCursor(0,5);
         display.setTextSize(3);
         display.print("Sent");
         display.display();
@@ -70,9 +70,9 @@ void loop(){
       }else {
         Serial.println("No message typed");
         display.clearDisplay();
-        display.setCursor(23,25);
+        display.setCursor(0,5);
         display.setTextSize(3);
-        display.print("No Message");
+        display.print("Not Sent");
         display.display();
         delay(3000);
         display.clearDisplay();
@@ -87,3 +87,8 @@ void loop(){
       delay(100);
   }
 }
+
+
+
+
+
