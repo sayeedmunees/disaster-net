@@ -7,4 +7,4 @@ Established esp32 connection with a keypad and Oled, Fixed dialing activated for
 * 2 - Not Feeling Well
 
 The code is simulated in wokwi and is working fine. The circuit diagram I used in wokwe is given below:
-![alt text](https://github.com/sayeedmunees/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text]([https://github.com/sayeedmunees/[reponame]/blob/[branch]/image.jpg?raw=true](https://github.com/sayeedmunees/disaster-net/blob/munees/%7B629C4A6E-662A-44BD-8859-F233FBBD7224%7D.png))
