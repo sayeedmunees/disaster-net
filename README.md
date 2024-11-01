@@ -10,5 +10,6 @@ https://wokwi.com/projects/380902363289847809
 The code is simulated in Wokwi and is working fine. The circuit diagram I used in Wokwi is given below:
 ![Circuit Diagram](./assests/circuitdiagram1.jpg)
 
-Esp32 pin diagram:
+*Esp32 pin diagram:
+
 ![Esp Diagram](./assests/espconnection.png)
