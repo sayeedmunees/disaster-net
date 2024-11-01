@@ -23,9 +23,9 @@ void setup(){
   servo_bin.attach(19);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   display.setTextColor(WHITE,BLACK);
-  display.setCursor(0,5);
+  display.setCursor(0,2);
   display.clearDisplay();
-  display.setTextSize(3);
+  display.setTextSize(2);
   Serial.begin(115200);
   input_password.reserve(32);
 }
@@ -41,43 +41,49 @@ void loop(){
       input_password = ""; 
       display.clearDisplay();
       display.display();
-      display.setCursor(0,5);} 
+      display.setCursor(0,2);} 
   else if (key == '#') {
       if ("1" == input_password) {
         Serial.println("Help Me");
         servo_bin.write(0);
         display.clearDisplay();
-        display.setCursor(0,5);
-        display.setTextSize(3);
+        display.setCursor(0,2);
+        display.setTextSize(2);
         display.print("Sent");
+        display.display();
+        display.setCursor(0,22);
+        display.print("Help Me");
         display.display();
         delay(3000);
         servo_bin.write(90);
         display.clearDisplay();
         display.display();
-        display.setCursor(0,5);
+        display.setCursor(0,2);
       } else if("2" == input_password){
         Serial.println("Not feeling well");
         display.clearDisplay();
-        display.setCursor(0,5);
-        display.setTextSize(3);
+        display.setCursor(0,2);
+        display.setTextSize(2);
         display.print("Sent");
+        display.setCursor(0,20);
+        display.setTextSize(2);
+        display.print("Not feeling well");
         display.display();
         delay(3000);
         display.clearDisplay();
         display.display();
-        display.setCursor(0,5);
+        display.setCursor(0,2);
       }else {
         Serial.println("No message typed");
         display.clearDisplay();
-        display.setCursor(0,5);
-        display.setTextSize(3);
+        display.setCursor(0,2);
+        display.setTextSize(2);
         display.print("Not Sent");
         display.display();
         delay(3000);
         display.clearDisplay();
         display.display();
-        display.setCursor(0,5);
+        display.setCursor(0,2);
       }
       input_password = ""; 
   } 
@@ -87,8 +93,6 @@ void loop(){
       delay(100);
   }
 }
-
-
 
 
 
