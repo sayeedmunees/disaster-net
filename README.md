@@ -19,7 +19,7 @@ The code is simulated in Wokwi and is working fine. The circuit diagram I used i
 ![Esp Diagram](./assests/espconnection.png)
 
 * Display pin diagram:
-* 
+  
 ![Display Diagram](./assests/displayconnection.png)
 
 
